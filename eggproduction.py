@@ -13,20 +13,20 @@ from sklearn.metrics import accuracy_score
 
 st.title("Egg Production Record")
 df = pd.read_csv("egg_production_system.csv")
-st.markdown("# First Five Observation")
+st.markdown("## First Five Observation")
 st.write(df.head())
 
-st.markdown("# Last Five Observation")
+st.markdown("## Last Five Observation")
 st.write(df.tail())
 
 
 st.title("General Information About The Record")
 st.markdown('## Preview')
-Preview = df.describe
+Preview = df.describe()
 st.write(Preview)
 
 st.markdown("## OVERVIEW")
-summary = df.shape
+summary = df.shape()
 st.write(summary)
 
 #Univariate Analysis
