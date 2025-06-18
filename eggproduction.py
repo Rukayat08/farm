@@ -17,4 +17,4 @@ st.markdown("# First Five Observation")
 st.write(df.head())
 
 st.markdown("# Last Five Observation")
-st.write(df.tail)
+st.write(df.tail())
