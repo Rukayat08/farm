@@ -18,3 +18,6 @@ st.write(df.head())
 
 st.markdown("# Last Five Observation")
 st.write(df.tail())
+
+st.markdown("# Overview")
+st.write(df[egg_production_system.csv].describe())
