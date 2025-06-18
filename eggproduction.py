@@ -20,5 +20,5 @@ st.markdown("# Last Five Observation")
 st.write(df.tail())
 
 st.markdown("# Overview")
-Overview = df.describe
+Overview = df.describe()
 st.write(Overview)
