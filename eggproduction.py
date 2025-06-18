@@ -26,8 +26,8 @@ Preview = df.describe()
 st.write(Preview)
 
 st.markdown("## OVERVIEW")
-summary = df.shape()
-st.write(summary)
+summary = df.shape
+st.table(summary)
 
 #Univariate Analysis
 st.markdown("## Univariate Analysis")
