@@ -9,9 +9,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score 
 
 #read csv file
-#create a dataframe
-
-st.read_csv("egg_production_system.csv") 
+#create a dataframe 
 
 st.title("# Egg Production Record")
 df = pd.read_csv("egg_production_system.csv")
