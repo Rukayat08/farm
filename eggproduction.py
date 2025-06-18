@@ -39,7 +39,7 @@ st.table(Organic)
 
 st.markdown("### ")
 df = pd.read_csv("egg_production_system.csv")
-Non_organic = df["Number of eggs from hens in non-organic, free range farms"].describe()
+Non_organic = df["Number of eggs from hens in non-organic, free-range farms"].describe()
 st.write(df["Non_organic"].describe())
 
 st.markdown("### Year of Production")
