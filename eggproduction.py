@@ -19,10 +19,52 @@ st.write(df.head())
 st.markdown("# Last Five Observation")
 st.write(df.tail())
 
-st.markdown("# Overview")
-Overview = df.describe()
-st.write(Overview)
 
-st.markdown("## Summary of record")
-summary = df.shape()
+st.title("General Information About The Record")
+st.markdown('## Preview')
+Preview = df.describe
+st.write(Preview)
+
+st.markdown("## OVERVIEW")
+summary = df.shape
 st.write(summary)
+
+#Univariate Analysis
+st.markdown("## Univariate Analysis")
+st.markdown("### Organic Free Range Farms")
+df = pd.read_csv("egg_production_system.csv")
+Organic = df["Number of eggs from hens in organic, free range farms"].describe()
+st.table(Organic)
+
+
+st.markdown("### ")
+df = pd.read_csv("egg_production_system.csv")
+Non_organic = df["Number of eggs from hens in non-organic, free range farms"].describe()
+st.write(df["Non_organic"].describe())
+
+st.markdown("### Year of Production")
+df = pd.read_csv("egg_production_system.csv")
+Year = df["Year"].describe()
+st.write(df["Year"].describe())
+
+
+organic = px.histogram(df["Number of eggs from hens in organic, free range farms"], x = "BloodPressure", title = "Distribution of Blood Pressure")
+st.plotly_chart(organic, use_container_width = True)
+
+organic = px.bar(df["Number of eggs from hens in organic, free range farms"], y = "Number of eggs from hens in organic, free range farms", title = "Organic farms production")
+st.plotly_chart(organic, use_container_width = True)
+
+n-organic = px.bar(df["Number of eggs from hens in non-organic, free range farms"], y = "Number of eggs from hens in non-organic, free range farms", title = "Non-organic Farms production")
+st.plotly_chart(n-organic, use_container_width = True)
+
+st.markdown("Bivariate Analysis")
+st.markdown("## Year vs Organic Farm prodcution")
+df2 = pd.DataFrame(df["Year"], df["Number of eggs from hens in organic, free range farms"])
+st.write(df2)
+
+st.markdown("Bivariate Analysis")
+st.markdown("## Year vs Organic Farm prodcution")
+df3 = pd.DataFrame(df["Year"], df["Number of eggs from hens in non-organic, free range farms"])
+st.write(df3)
+
+
