@@ -22,3 +22,7 @@ st.write(df.tail())
 st.markdown("# Overview")
 Overview = df.describe()
 st.write(Overview)
+
+st.markdown("## Summary of record")
+summary = df.shape()
+st.write(summary)
