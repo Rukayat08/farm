@@ -11,7 +11,7 @@ from sklearn.metrics import accuracy_score
 #read csv file
 #create a dataframe 
 
-st.title("# Egg Production Record")
+st.title("Egg Production Record")
 df = pd.read_csv("egg_production_system.csv")
 st.markdown("# First Five Observation")
 st.write(df.head())
