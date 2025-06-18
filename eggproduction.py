@@ -33,7 +33,7 @@ st.table(summary)
 st.markdown("## Univariate Analysis")
 st.markdown("### Organic Free Range Farms")
 df = pd.read_csv("egg_production_system.csv")
-Organic = df["Number of eggs from hens in organic, free range farms"].describe()
+Organic = df["Number_of_eggs_from_hens_in_organic, free-range_farms"].describe()
 st.table(Organic)
 
 
