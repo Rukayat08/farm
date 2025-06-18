@@ -37,15 +37,15 @@ Organic = df["Number of eggs from hens in organic, free-range farms"].describe()
 st.table(Organic)
 
 
-st.markdown("### ")
+st.markdown("### Non-organic Free Range Farms ")
 df = pd.read_csv("egg_production_system.csv")
 Non_organic = df["Number of eggs from hens in non-organic, free-range farms"].describe()
-st.write(df["Non_organic"].describe())
+st.table(df"Non_organic")
 
 st.markdown("### Year of Production")
 df = pd.read_csv("egg_production_system.csv")
 Year = df["Year"].describe()
-st.write(df["Year"].describe())
+st.write(df"Year")
 
 
 organic = px.histogram(df["Number of eggs from hens in organic, free range farms"], x = "BloodPressure", title = "Distribution of Blood Pressure")
