@@ -36,6 +36,11 @@ df = pd.read_csv("egg_production_system.csv")
 Organic = df["Number of eggs from hens in organic, free-range farms"].describe()
 st.table(Organic)
 
+st.markdown("### Organic Free Range Farms")
+df = pd.read_csv("egg_production_system.csv")
+n_organic = df["Number of eggs from hens in non-organic, free-range farms"].describe()
+st.table(n_organic)
+
 
 st.markdown("### Non-organic Free Range Farms ")
 df = pd.read_csv("egg_production_system.csv")
