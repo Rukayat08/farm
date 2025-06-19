@@ -48,7 +48,7 @@ st.table(barns)
 
 st.markdown("### Non-Organic Free Range Farms")
 df = pd.read_csv("egg_production_system.csv")
-cages = df["Number of eggs from hens in (enriched) cages"].describe()
+cages = df["Number of eggs from hens in (enriched)cages"].describe()
 st.table(cages) 
 
 
