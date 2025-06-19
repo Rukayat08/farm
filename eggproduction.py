@@ -60,23 +60,29 @@ st.table(Year)
 
 
 
-Organic2 = px.histogram(df["Number of eggs from hens in organic, free-range farms"], x = "BloodPressure", title = "Distribution of Blood Pressure")
+Organic2 = px.histogram(df["Number of eggs from hens in organic, free-range farms"], x = "Number of eggs from hens in organic, free-range farms", title = "Eggs Produced in Organic farms")
 st.plotly_chart(Organic2, use_container_width = True)
 
-n_organic = px.bar(df["Number of eggs from hens in organic, free-range farms"], y = "Number of eggs from hens in organic, free range farms", title = "Organic farms production")
+n_organic = px.bar(df["Number of eggs from hens in non-organic, free-range farms"], y = "Number of eggs from hens in non-organic, free-range farms", title = "Organic farms production")
 st.plotly_chart(n_organic, use_container_width = True)
 
-n_organic = px.bar(df["Number of eggs from hens in non-organic, free-range farms"], y = "Number of eggs from hens in non-organic, free range farms", title = "Non-organic Farms production")
-st.plotly_chart(n_organic, use_container_width = True)
+organic = px.bar(df["Number of eggs from hens in organic, free-range farms"], y = "Number of eggs from hens in organic, free-range farms", title = "Non-organic Farms production")
+st.plotly_chart(organic, use_container_width = True)
 
 st.markdown("Bivariate Analysis")
 st.markdown("## Year vs Organic Farm prodcution")
-df2 = pd.DataFrame(df["Year"], df["Number of eggs from hens in organic, free range farms"])
+df2 = pd.DataFrame(df["Year"], df["Number of eggs from hens in organic, free-range farms"])
 st.write(df2)
 
 st.markdown("Bivariate Analysis")
 st.markdown("## Year vs Organic Farm prodcution")
-df3 = pd.DataFrame(df["Year"], df["Number of eggs from hens in non-organic, free range farms"])
+df3 = pd.DataFrame(df["Year"], df["Number of eggs from hens in non-organic, free-range farms"])
 st.write(df3)
 
+st.markdown("## Year vs Barns prodcution")
+df3 = pd.DataFrame(df["Year"], df["Number of eggs from hens in barns"])
+st.write(df3) 
 
+st.markdown("## Year vs (Enriched) Cage prodcution")
+df3 = pd.DataFrame(df["Year"], df["Number of eggs from hens in (enriched) cages"])
+st.write(df3)
