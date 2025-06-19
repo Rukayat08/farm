@@ -75,7 +75,7 @@ df2 = pd.DataFrame(df["Year"], df["Number of eggs from hens in organic, free-ran
 st.write(df2)
 
 
-st.markdown("## Year vs Organic Farm prodcution")
+st.markdown("## Year vs Non-organic Farm prodcution")
 df3 = pd.DataFrame(df["Year"], df["Number of eggs from hens in non-organic, free-range farms"])
 st.write(df3)
 
@@ -86,3 +86,11 @@ st.write(df3)
 st.markdown("## Year vs (Enriched) Cage prodcution")
 df3 = pd.DataFrame(df["Year"], df["Number of eggs from hens in (enriched) cages"])
 st.write(df3)
+
+st.title("Graph Representation")
+st.markdown("## Bar Graph")
+
+Year = df["Year"].value_counts()
+Year.counts.columns = ["Number of eggs from hens in organic, free-range farms", "Year"]
+Organic = px.bar(df["Number of eggs from hens in organic, free-range farms"], x = "Number of eggs from hens in organic, free-range farms", title = "Organic")
+st.plotly_chart(Organic, use_container_width = True)
