@@ -13,6 +13,8 @@ from sklearn.metrics import accuracy_score
 
 st.title("Egg Production Record")
 df = pd.read_csv("egg_production_system.csv")
+df = df.drop('Entity',axis=1)
+df = df.drop('Code', axis=1)
 st.markdown("## First Five Observation")
 st.write(df.head())
 
