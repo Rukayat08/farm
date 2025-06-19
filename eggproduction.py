@@ -58,11 +58,12 @@ Year = df["Year"].describe()
 st.table(Year)
 
 
-
-
+st.title(" Graph Representation")
+st.markdown("## Histogram")
 Organic2 = px.histogram(df["Number of eggs from hens in organic, free-range farms"], x = "Number of eggs from hens in organic, free-range farms", title = "Eggs Produced in Organic farms")
 st.plotly_chart(Organic2, use_container_width = True)
 
+st.markdown("### Bar Chart")
 n_organic = px.bar(df["Number of eggs from hens in non-organic, free-range farms"], y = "Number of eggs from hens in non-organic, free-range farms", title = "Organic farms production")
 st.plotly_chart(n_organic, use_container_width = True)
 
@@ -87,10 +88,30 @@ st.markdown("## Year vs (Enriched) Cage prodcution")
 df3 = pd.DataFrame(df["Year"], df["Number of eggs from hens in (enriched) cages"])
 st.write(df3)
 
-st.title("Graph Representation")
-st.markdown("## Bar Graph")
+st.title("Pie Chart Representation")
+st.title('Egg Production in Organic farms')
+counted = df["Number of eggs from hens in organic, free-range farms"].value_counts().reset_index()
+counted.columns = ["Number of eggs from hens in organic, free-range farms", "count"]
+organic2 = px.pie(counted, names = "Number of eggs from hens in organic, free-range farms", values = "count", title = "Organic Farm Production")
+st.plotly_chart(organic2, use_container_width = True)
 
-Year = df["Year"].value_counts()
-Year.counts.columns = ["Number of eggs from hens in organic, free-range farms", "Year"]
-Organic = px.bar(df["Number of eggs from hens in organic, free-range farms"], x = "Number of eggs from hens in organic, free-range farms", title = "Organic")
-st.plotly_chart(Organic, use_container_width = True)
+
+st.title('Egg Production in Non-organic farms')
+counted = df["Number of eggs from hens in non-organic, free-range farms"].value_counts().reset_index()
+counted.columns = ["Number of eggs from hens in non-organic, free-range farms", "count"]
+n_organic2 = px.pie(counted, names = "Number of eggs from hens in non-organic, free-range farms", values = "count", title = "Non-organic Farm Production")
+st.plotly_chart(n_organic2, use_container_width = True)
+
+
+st.title('Egg Production in Cage')
+counted = df["Number of eggs from hens in (enriched) cages"].value_counts().reset_index()
+counted.columns = ["Number of eggs from hens in (enriched) cages", "count"]
+cage2 = px.pie(counted, names = "Number of eggs from hens in (enriched) cages", values = "count", title = "Cages Production")
+st.plotly_chart(cage2, use_container_width = True)
+
+st.title('Egg Production in Barns')
+counted = df["Number of eggs from hens in barns"].value_counts().reset_index()
+counted.columns = ["Number of eggs from hens in barns", "count"]
+barn2 = px.pie(counted, names = "Number of eggs from hens in barns", values = "count", title = "Barn Production")
+st.plotly_chart(barn2, use_container_width = True)
+
