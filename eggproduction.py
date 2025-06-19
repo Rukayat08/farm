@@ -115,3 +115,24 @@ counted.columns = ["Number of eggs from hens in barns", "count"]
 barn2 = px.pie(counted, names = "Number of eggs from hens in barns", values = "count", title = "Barn Production")
 st.plotly_chart(barn2, use_container_width = True)
 
+
+st.markdown("## Correlation")
+correlation = df.corr()
+st.write(correlation)
+
+st.markdown("## Predictive Analysis")
+X = df.drop("Outcome", axis=1)
+Y = df["Outcome"]
+X_train,X_test,Y_train,Y_test = train_test_split(X,Y,test_size=0.2)
+
+
+model = LogisticRegression()
+model.fit(X_train,Y_train) #training the model
+
+st.markdown("## Outcome Prediction")
+prediction = model.predict(X_test)
+st.write(prediction)
+
+st.markdown("## Model Evaluation")
+accuracy = accuracy_score(prediction, Y_test)
+st.write(accuracy)
