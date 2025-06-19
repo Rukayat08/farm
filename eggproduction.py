@@ -41,6 +41,17 @@ df = pd.read_csv("egg_production_system.csv")
 n_organic = df["Number of eggs from hens in non-organic, free-range farms"].describe()
 st.table(n_organic) 
 
+st.markdown("### Eggs Produced in Barns")
+df = pd.read_csv("egg_production_system.csv")
+barns = df["Number of eggs from hens in barns"].describe()
+st.table(barns) 
+
+st.markdown("### Non-Organic Free Range Farms")
+df = pd.read_csv("egg_production_system.csv")
+cages = df["Number of eggs from hens in (enriched) cages"].describe()
+st.table(cages) 
+
+
 st.markdown("### Year of Production")
 df = pd.read_csv("egg_production_system.csv")
 Year = df["Year"].describe()
