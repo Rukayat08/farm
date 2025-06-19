@@ -48,8 +48,8 @@ st.table(barns)
 
 st.markdown("### Eggs Produced in Cages")
 df = pd.read_csv("egg_production_system.csv")
-cages = df["Number of eggs from hens in (enriched)cages"].describe()
-st.write(cages) 
+cage = df["Number of eggs from hens in (enriched) cages"].describe()
+st.write(cage) 
 
 
 st.markdown("### Year of Production")
