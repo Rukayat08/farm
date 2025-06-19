@@ -60,13 +60,13 @@ st.table(Year)
 
 
 
-organic = px.histogram(df["Number of eggs from hens in organic, free range farms"], x = "BloodPressure", title = "Distribution of Blood Pressure")
+organic = px.histogram(df["Number of eggs from hens in organic, free-range farms"], x = "BloodPressure", title = "Distribution of Blood Pressure")
 st.plotly_chart(organic, use_container_width = True)
 
-organic = px.bar(df["Number of eggs from hens in organic, free range farms"], y = "Number of eggs from hens in organic, free range farms", title = "Organic farms production")
+organic = px.bar(df["Number of eggs from hens in organic, free-range farms"], y = "Number of eggs from hens in organic, free range farms", title = "Organic farms production")
 st.plotly_chart(organic, use_container_width = True)
 
-n_organic = px.bar(df["Number of eggs from hens in non-organic, free range farms"], y = "Number of eggs from hens in non-organic, free range farms", title = "Non-organic Farms production")
+n_organic = px.bar(df["Number of eggs from hens in non-organic, free-range farms"], y = "Number of eggs from hens in non-organic, free range farms", title = "Non-organic Farms production")
 st.plotly_chart(n_organic, use_container_width = True)
 
 st.markdown("Bivariate Analysis")
