@@ -1,6 +1,6 @@
 import pandas as pd 
 import streamlit as st 
-import matplotlib.pyplot as pt 
+import matplotlib.pyplot as plt 
 import numpy as np 
 import seaborn as sns
 import plotly.express as px
@@ -117,16 +117,30 @@ st.title('Egg Production in Barns')
 counted = df["Number of eggs from hens in barns"].value_counts().reset_index()
 counted.columns = ["Number of eggs from hens in barns", "count"]
 barn2 = px.pie(counted, names = "Number of eggs from hens in barns", values = "count", title = "Barn Production")
-st.plotly_chart(barn2, use_container_width = True)
-
+st.plotly_chart(barn2, use_container_width = True) 
 
 st.markdown("## Correlation")
-correlation = df.corr()
+numeric_df = df.select_dtypes(include='number')
+correlation = numeric_df.corr()
 st.write(correlation)
 
+numeric_cols = [
+    "Number of eggs from hens in organic, free-range farms",
+    "Number of eggs from hens in non-organic, free-range farms",
+    "Number of eggs from hens in barns",
+    "Number of eggs from hens in (enriched) cages"
+]
+
+plt.figure(figsize=(10, 8))
+sns.heatmap(correlation, annot=True, cmap='coolwarm', linewidths=0.5)
+plt.title('Correlation Heatmap of Egg Production Systems')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.show()
+
 st.markdown("## Predictive Analysis")
-X = df.drop("Number of eggs from hens in organic, free-range farms", axis=1)
-Y = df["Number of eggs from hens in organic, free-range farms"]
+X = df.drop("Year", axis=1)
+Y = df["Number of eggs from hens in non-organic, free-range farms"]
 X_train,X_test,Y_train,Y_test = train_test_split(X,Y,test_size=0.2)
 
 
