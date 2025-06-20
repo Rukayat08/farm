@@ -137,23 +137,4 @@ sns.heatmap(correlation, annot=True, cmap='coolwarm', linewidths=0.5)
 plt.title('Correlation Heatmap of Egg Production Systems')
 plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
-plt.show()
-
-st.markdown("## Predictive Analysis ")
-X = df.drop("Year", axis=1)
-Y = df["Number of eggs from hens in non-organic, free-range farms"]
-X_train,X_test,Y_train,Y_test = train_test_split(X,Y,test_size=0.2)
-
-
-model = LogisticRegression()
-model.fit(X_train,Y_train) 
-
-#training the model
-
-st.markdown("## Organic Production Prediction")
-prediction = model.predict(X_test)
-st.write(prediction)
-
-st.markdown("## Model Evaluation")
-accuracy = accuracy_score(prediction, Y_test)
-st.write(accuracy)
+plt.show() 
