@@ -106,21 +106,7 @@ st.write(df3)
 
 st.markdown("## Barns vs (Enriched) Cage prodcution")
 df3 = pd.DataFrame(df["Number of eggs from hens in barns"], df["Number of eggs from hens in (enriched) cages"])
-st.write(df3)
-
-
-st.title("Multivariate Data Analysis On Egg Production Record")
-numeric_cols = df.select_dtypes(include=["float64", "int64"]).columns.tolist()
-selected_columns = st.multiselect("Year","Number of eggs from hens in organic, free-range farms", "Number of eggs from hens in non-organic, free-range farms", "Number of eggs from hens in barns",  "Number of eggs from hens in (enriched) cages",  numeric_cols)
-
-if len(selected_columns) >= 2:
-    data = df[selected_columns].dropna()
-        
-
-
-st.title("Multivariate Analysis")
-df4 = pd.DataFrame2(df["Number of eggs from hens in barns"], df["Number of eggs from hens in organic, free-range farms"], df["Number of eggs from hens in (enriched) cages"])
-st.write(df4)
+st.write(df3)  
 
 st.title("Pie Chart Representation")
 st.title('Egg Production in Organic farms')
