@@ -78,6 +78,10 @@ st.markdown("## Line Chart for Eggs Produced in Barns")
 barns = px.line(df["Number of eggs from hens in barns"], y = "Number of eggs from hens in barns", title = "Barns production")
 st.plotly_chart(barns, use_container_width = True)
 
+st.markdown("## Line Chart for Eggs Produced in Cages")
+cages = px.line(df["Number of eggs from hens in (enriched) cages"], y = "Number of eggs from hens in (enriched) cages", title = "Cages production")
+st.plotly_chart(cages, use_container_width = True)
+
 
 st.markdown("## Bivariate Analysis")
 st.markdown("## Year vs Organic Farm prodcution")
