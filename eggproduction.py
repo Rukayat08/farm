@@ -74,6 +74,11 @@ st.plotly_chart(n_organic, use_container_width = True)
 organic = px.bar(df["Number of eggs from hens in organic, free-range farms"], y = "Number of eggs from hens in organic, free-range farms", title = "Non-organic Farms production")
 st.plotly_chart(organic, use_container_width = True)
 
+st.markdown("## Line Chart for Eggs Produced in Barns")
+barns = px.line(df["Number of eggs from hens in barns"], y = "Number of eggs from hens in barns", title = "Barns production")
+st.plotly_chart(barns, use_container_width = True)
+
+
 st.markdown("## Bivariate Analysis")
 st.markdown("## Year vs Organic Farm prodcution")
 df2 = pd.DataFrame(df["Year"], df["Number of eggs from hens in organic, free-range farms"])
