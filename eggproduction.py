@@ -6,11 +6,13 @@ import seaborn as sns
 import plotly.express as px
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
+from sklearn.decomposition import PCA 
+from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score 
 
 #read csv file
 #create a dataframe 
-
+st.set_page_config(page_title="Multivariate Analysis", layout="wide")
 st.title("Egg Production Record")
 df = pd.read_csv("egg_production_system.csv")
 
@@ -106,6 +108,19 @@ st.markdown("## Barns vs (Enriched) Cage prodcution")
 df3 = pd.DataFrame(df["Number of eggs from hens in barns"], df["Number of eggs from hens in (enriched) cages"])
 st.write(df3)
 
+
+st.title("Multivariate Data Analysis On Egg Production Record")
+numeric_cols = df.select_dtypes(include=["float64", "int64"]).columns.tolist()
+selected_columns = st.multiselect("Year","Number of eggs from hens in organic, free-range farms", "Number of eggs from hens in non-organic, free-range farms", "Number of eggs from hens in barns",  "Number of eggs from hens in (enriched) cages",  numeric_cols)
+
+if len(selected_columns) >= 2:
+    data = df[selected_columns].dropna()
+        
+
+
+st.title("Multivariate Analysis")
+df4 = pd.DataFrame2(df["Number of eggs from hens in barns"], df["Number of eggs from hens in organic, free-range farms"], df["Number of eggs from hens in (enriched) cages"])
+st.write(df4)
 
 st.title("Pie Chart Representation")
 st.title('Egg Production in Organic farms')
