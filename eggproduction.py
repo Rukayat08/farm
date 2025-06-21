@@ -92,6 +92,12 @@ st.markdown("## Year vs (Enriched) Cage prodcution")
 df3 = pd.DataFrame(df["Year"], df["Number of eggs from hens in (enriched) cages"])
 st.write(df3)
 
+
+st.markdown("## Barns vs (Enriched) Cage prodcution")
+df3 = pd.DataFrame(df["Number of eggs from hens in barns"], df["Number of eggs from hens in (enriched) cages"])
+st.write(df3)
+
+
 st.title("Pie Chart Representation")
 st.title('Egg Production in Organic farms')
 counted = df["Number of eggs from hens in organic, free-range farms"].value_counts().reset_index()
